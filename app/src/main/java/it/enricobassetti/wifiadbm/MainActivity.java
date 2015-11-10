@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.Formatter;
+import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 			}
 			BufferedReader reader = new BufferedReader(new InputStreamReader(fw.getInputStream()));
 			String port = reader.readLine();
-			if(!"-1".equals(port)) {
+			if(port != null && !port.isEmpty() && !"-1".equals(port)) {
 				ret = true;
 			}
 			reader.close();
